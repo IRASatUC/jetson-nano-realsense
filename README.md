@@ -6,7 +6,7 @@ This README is about installing and using a jetson nano with rtabmap and realsen
 # Step 1 Install ROS
 Follow the instructions [HERE](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
-# Step 2 Install rtabmap ROS
+# Step 2 Install rtabmap ROS (Part A)
 These will be based off [rtabmap_ros github](https://github.com/introlab/rtabmap_ros)
   
   ### 1. Install Binaries
@@ -45,3 +45,53 @@ These will be based off [rtabmap_ros github](https://github.com/introlab/rtabmap
   $ make -j2
   $ sudo make install
   ```
+# Step 3 Install Realsense
+These steps are based off this [jetsonhacks page](https://www.jetsonhacks.com/2019/05/16/jetson-nano-realsense-depth-camera/)
+
+### 1. Install Swapfile
+```
+$ git clone https://github.com/jetsonhacksnano/installSwapfile
+$ cd InstallSwapfile
+$ ./InstallSwapfile.sh
+$ cd ..
+```
+
+### 2. Install librealsense
+```
+$ git clone https://github.com/jetsonhacksnano/installLibrealsense
+$ cd installLibrealsense
+$ ./installLibrealsense.sh
+```
+
+### 3. Install kernel and module patches
+``` $ ./patchUbuntu.sh```
+
+# Step 4. Install rtabmap (Part B)
+
+### 1. Install standalone libraries
+```
+$ cd ~
+$ git clone https://github.com/introlab/rtabmap.git rtabmap
+$ cd rtabmap/build
+$ cmake -DCMAKE_INSTALL PREFIX=~/catkin_ws/devel ..
+$ make -j2
+$ sudo make install
+```
+
+### 2. Install rtabmap ros package into Catkin workspace
+```
+$ cd ~/catkin_ws
+$ git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
+$ catkin_make -j1
+```
+
+# Step 5. Setup to run
+
+### 1. Update data_recorder.launch
+The data recorder launch file has been edited on line 21 for 'max_rate' you can either replace yours with this file or go to 
+#### ~/catkin_ws/src/rtabmap_ros/launch
+and chang it yourself. The original has the value at 0 which causes rtabmap to record as fast as possible which the jetson nano cannot handle so this will put it at 1 instead.
+
+### 2. Run rs_rtabmap.launch file
+This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On lines 7-9 I have set the realsense camera to 15 frames per second which is the lowest it will go. On line 18 the 'queue_size' can be changed to possibly increase the capacity of capture the jetson will take. To run this launch file if it is your home folder:
+```$ roslaunch rs_rtabmap.launch```
