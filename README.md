@@ -87,12 +87,7 @@ $ catkin_make -j1
 
 # Step 5. Setup to run
 
-### 1. Update data_recorder.launch
-The data recorder launch file has been edited on line 21 for 'max_rate' you can either replace yours with this file or go to 
-#### ~/catkin_ws/src/rtabmap_ros/launch
-and chang it yourself. The original has the value at 0 which causes rtabmap to record as fast as possible which the jetson nano cannot handle so this will put it at 1 instead.
-
-### 2. Run rs_rtabmap.launch file
+### 1. Run rs_rtabmap.launch file
 This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On lines 7-9 I have set the realsense camera to 15 frames per second which is the lowest it will go. On line 18 the 'queue_size' can be changed to possibly increase the capacity of capture the jetson will take. To run this launch file if it is your home folder:
 
 ```$ roslaunch rs_rtabmap.launch```
