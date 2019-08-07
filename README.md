@@ -24,7 +24,8 @@ These will be based off [rtabmap_ros github](https://github.com/introlab/rtabmap
   $ sudo apt-get remove ros-melodic-rtabmap ros-melodic-rtabmap-ros
   ```
   
-  ### 4. Install g2o (during the 'make' if the program stops responding cancel it and change it to '-j1')
+  ### 4. Install g2o 
+  (during the 'make' if the program stops responding cancel it and change it to '-j1')
   ``` 
   $ git clone https://github.com/felixendres/g2o.git
   $ cd g2o
@@ -35,7 +36,8 @@ These will be based off [rtabmap_ros github](https://github.com/introlab/rtabmap
   $ sudo make install
   ```
   
-  ### 5. Install GTSAM (during the 'make' if the program stops responding cancel it and change it to '-j1')
+  ### 5. Install GTSAM 
+  (during the 'make' if the program stops responding cancel it and change it to '-j1')
   ```
   $ git clone https://bitbucket.org/gtborg/gtsam.git
   $ cd gtsam
@@ -88,6 +90,7 @@ $ catkin_make -j1
 # Step 5. Setup to run
 
 ### 1. Run rs_rtabmap.launch file
-This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On lines 7-9 I have set the realsense camera to 15 frames per second which is the lowest it will go. On line 18 the 'queue_size' can be changed to possibly increase the capacity of capture the jetson will take. To run this launch file if it is your home folder:
+This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On lines 7-9 I have set the realsense camera to 15 frames per second which is the lowest it will go. On line 18 the 'queue_size' can be changed to possibly increase the capacity of captures the jetson will take. 
+##### To run this launch file if it is your home folder:
 
 ```$ roslaunch rs_rtabmap.launch```
