@@ -68,7 +68,7 @@ $ ./installLibrealsense.sh
 ### 3. Install kernel and module patches
 ``` $ ./patchUbuntu.sh```
 
-# Step 4. Install rtabmap (Part B)
+# Step 4 Install rtabmap (Part B)
 
 ### 1. Install standalone libraries
 ```
@@ -87,7 +87,7 @@ $ git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
 $ catkin_make -j1
 ```
 
-# Step 5. Setup to run
+# Step 5 Setup to run
 
 ### 1. Run rs_rtabmap.launch file
 This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On lines 7-9 I have set the realsense camera to 15 frames per second which is the lowest it will go. On line 18 the 'queue_size' can be changed to possibly increase the capacity of captures the jetson will take. 
