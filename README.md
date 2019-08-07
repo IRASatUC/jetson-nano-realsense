@@ -94,4 +94,5 @@ and chang it yourself. The original has the value at 0 which causes rtabmap to r
 
 ### 2. Run rs_rtabmap.launch file
 This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On lines 7-9 I have set the realsense camera to 15 frames per second which is the lowest it will go. On line 18 the 'queue_size' can be changed to possibly increase the capacity of capture the jetson will take. To run this launch file if it is your home folder:
+
 ```$ roslaunch rs_rtabmap.launch```
