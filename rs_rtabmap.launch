@@ -4,9 +4,9 @@
 
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="align_depth" 	value="true" />
-	<arg name="depth_fps"           default="15"/>
-  	<arg name="infra_fps"           default="15"/>
-  	<arg name="color_fps"           default="15"/>   
+	<arg name="depth_fps"           value="15"/>
+  	<arg name="infra_fps"           value="15"/>
+  	<arg name="color_fps"           value="15"/>   
     </include>
 
     <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
