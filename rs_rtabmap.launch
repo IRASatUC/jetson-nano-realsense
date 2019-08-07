@@ -15,7 +15,7 @@
 	<arg name="rgb_topic"         	value="/camera/color/image_raw"/>
 	<arg name="camera_info_topic"  	value="/camera/color/camera_info"/>
 	<arg name="approx_sync"		value="false"/>
-	<arg name="queue_size"         	value="10"/>
+	<arg name="queue_size"         	value="115"/>
 	<arg name="database_path"	value="~/rtabmap_database/rtabmap.db"/>
     </include>
 </launch>
