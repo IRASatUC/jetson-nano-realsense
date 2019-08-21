@@ -94,3 +94,6 @@ This file will use rs_camera.launch and rtabmap.launch files to open rtabmap. On
 ##### To run this launch file if it is your home folder:
 
 ```$ roslaunch rs_rtabmap.launch```
+
+### 2. Use commands inside Jetson_rtabmap folder
+Put the folder inside C:/Users/'user'/ and use the commands to operate rtabmap in SSH.
