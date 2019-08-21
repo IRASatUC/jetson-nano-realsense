@@ -3,20 +3,21 @@
 	<arg name="rtabmapviz"	default="true" />
 
 <include file="$(find realsense2_camera)/launch/rs_camera.launch">
-        <arg name="align_depth" 	value="true" />
-	<arg name="depth_fps"           value="15"/>
-  	<arg name="infra_fps"           value="15"/>
-  	<arg name="color_fps"           value="15"/>   
+    <arg name="align_depth" 	value="true"		/>
+	<arg name="enable_pointcloud"	value="true"	/>
+	<arg name="depth_fps"           value="15"		/>
+  	<arg name="infra_fps"           value="15"		/>
+  	<arg name="color_fps"           value="15"		/>   
 </include>
-
 <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
-        <arg name="rtabmap_args"       	value="--delete_db_on_start"/>
-        <arg name="depth_topic"        	value="/camera/aligned_depth_to_color/image_raw"/>
-	<arg name="rgb_topic"         	value="/camera/color/image_raw"/>
-	<arg name="camera_info_topic"  	value="/camera/color/camera_info"/>
-	<arg name="approx_sync"		value="false"/>
-	<arg name="queue_size"         	value="115"/>
-	<arg name="database_path"	value="~/rtabmap_database/rtabmap.db"/>
+		<arg name="rviz"		value="false"	/>
+		<arg name="rtabmapviz"		value="true"	/>
+		<arg name="rtabmap_args"       	value="--delete_db_on_start"/>
+		<arg name="depth_topic"        	value="/camera/aligned_depth_to_color/image_raw"/>
+		<arg name="rgb_topic"         	value="/camera/color/image_raw"/>
+		<arg name="camera_info_topic"  	value="/camera/color/camera_info"/>
+		<arg name="approx_sync"		value="false"	/>
+		<arg name="queue_size"         	value="200"		/>	
 </include>
 
 </launch>
